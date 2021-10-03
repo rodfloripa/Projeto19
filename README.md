@@ -1,9 +1,9 @@
 # Projeto18
-Otimização com CVXPY
+Otimização com CVXPY.
 Esta é uma tarefa do curso Otimização Discreta- https://www.coursera.org/learn/discrete-optimization/
 O arquivo handout.pdf possui a descrição completa do problema e do formato de dados de entrada
 
-Otimização de logística de armazéns de distribuição
+Otimização de logística de armazéns de distribuição.
 
 O problema fornece a localização x,y de n clientes e m armazéns de distribuição.
 Cada cliente possui uma demanda 'Di' a ser atendida, cada armazém possui uma capacidade
@@ -12,5 +12,5 @@ de armazéns que devem ficar abertos de forma a atender todos os clientes existe
 também a seleção de clientes que devem ser atendidos por cada armazém. A capacidade
 máxima de atendimento de cada armazém não deve ser superada pelo somatório de demandas
 de clientes Di que estão conectados a cada armazém.Deve-se minimizar o somatório de
-distancias de cada armazém até seus clientes atendidos e o somatório de custos de operação
+distâncias de cada armazém até seus clientes atendidos e o somatório de custos de operação
 de cada armazém aberto.
