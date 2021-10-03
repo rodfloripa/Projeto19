@@ -1,6 +1,7 @@
 # Projeto18
 Otimização com CVXPY
 Esta é uma tarefa do curso Otimização Discreta- https://www.coursera.org/learn/discrete-optimization/
+O arquivo handout.pdf possui a descrição completa do problema e do formato de dados de entrada
 
 Otimização de logística de armazéns de distribuição
 
