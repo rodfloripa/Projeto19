@@ -16,6 +16,7 @@ distâncias de cada armazém até seus clientes atendidos e o somatório de cust
 de cada armazém aberto.
 
 Instalar Bibliotecas cvxpy e xpress:
+
 pip install xpress
 
 pip install cvxpy
