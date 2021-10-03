@@ -17,6 +17,7 @@ de cada armazém aberto.
 
 Instalar Bibliotecas cvxpy e xpress:
 pip install xpress
+
 pip install cvxpy
 
 Para rodar baixe o diretório data e digite na linha de comando:
