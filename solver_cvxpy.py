@@ -6,6 +6,9 @@ import math
 import cvxpy as cp
 import numpy as np
 from scipy.spatial import distance
+import warnings
+
+warnings.filterwarnings("ignore")
 
 Point = namedtuple("Point", ['x', 'y'])
 Facility = namedtuple("Facility", ['index', 'setup_cost', 'capacity', 'location'])
