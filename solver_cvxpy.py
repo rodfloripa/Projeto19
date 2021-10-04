@@ -70,9 +70,8 @@ def solve_it(input_data):
     # sum of columns==1 to attend all customers,sum of line demand of customers attached to facility 'm' <= 'm' facility capacity
     constraints = [  StateMatrix.T @ np.ones(m) == 1, StateMatrix @ demand  <= capacity*used ]
                  
-                
+    # solve the problem            
     prob = cp.Problem(objective, constraints)
-
     result = prob.solve(cp.XPRESS,verbose = False,parallel=True)
     print("Capacities " ,used.value*capacity)
     print("Used Capacity ",StateMatrix.value @ demand)
