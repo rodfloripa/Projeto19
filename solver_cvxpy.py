@@ -91,6 +91,8 @@ def solve_it(input_data):
     for i in range(0,len(state_mat)):
         solution[i] = arr[i][0]
     print(solution)
+    obj = objective.value
+    print(obj)
 
 
 import sys
