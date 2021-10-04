@@ -81,7 +81,7 @@ def solve_it(input_data):
     print("State Matrix ",StateMatrix.value)
     
     # build  solution
-    # Example solution = [2,4,4] means that customers 0,1,2 are attached to facilities 2,4,4 
+    # For example, solution = [2,4,4] means that customers 0,1,2 are attached to facilities 2,4,4 
     state_mat = np.array(StateMatrix.value)
     arr = np.argwhere(state_mat==1)
     arr = list(arr)
