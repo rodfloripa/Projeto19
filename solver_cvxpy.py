@@ -78,7 +78,19 @@ def solve_it(input_data):
     print("Used Capacity ",StateMatrix.value @ demand)
     print("State Matrix ",StateMatrix.value)
     
+    # build  solution,print the vector of customers and facility index
+    # Example [2,4,4] means that customers 0,1,2 are attached to facilities 2,4,4 
+    state_mat = np.array(StateMatrix.value)
+    arr = np.argwhere(state_mat==1)
+    arr = list(arr)
+    arr.sort(key=lambda x: x[1])
+    solution = [0]*state_mat.shape[1]
+    for i in range(0,len(arr)):
+        solution[i] = arr[i][0]
     
+    for i in range(0,len(state_mat)):
+        solution[i] = arr[i][0]
+    print(solution)
 
 
 import sys
