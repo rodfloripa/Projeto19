@@ -85,10 +85,8 @@ def solve_it(input_data):
     arr = list(arr)
     arr.sort(key=lambda x: x[1])
     solution = [0]*state_mat.shape[1]
-    for i in range(0,len(arr)):
-        solution[i] = arr[i][0]
-    
-    for i in range(0,len(state_mat)):
+ 
+    for i in range(0,len(solution)):
         solution[i] = arr[i][0]
     print(solution)
     obj = objective.value
