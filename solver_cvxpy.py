@@ -86,7 +86,7 @@ def solve_it(input_data):
     # build  solution
     # For example, solution = [2,4,4] means that customers 0,1,2 are attached to facilities 2,4,4 
     state_mat = np.array(StateMatrix.value)
-    arr = np.argwhere(state_mat==1)
+    arr = np.argwhere(state_mat>0.5)
     arr = list(arr)
     arr.sort(key=lambda x: x[1])
     solution = [0]*state_mat.shape[1]
