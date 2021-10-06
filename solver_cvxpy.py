@@ -43,11 +43,13 @@ def solve_it(input_data):
     m = facility_count 
     n = customer_count 
     StateMatrix = cp.Variable((m,n),boolean = True)
+    # 'used' is a vector of 'm' facilities: if 0 not used,if 1 used
+    used = cp.Variable(m,boolean = True)
     
 
     # calculate the setup cost of the solution
     # 'used' is a vector of 'm' facilities: if 0 not used,if 1 used
-    used = cp.sum(StateMatrix,axis=1)
+    z = cp.sum(StateMatrix,axis=1)
     obj = 0
     for i in range(0,m):
         obj = obj + facilities[i].setup_cost*used[i]  
@@ -71,7 +73,8 @@ def solve_it(input_data):
     # sum setup cost and distances
     objective = cp.Minimize( dist_sum + obj )
     # sum of columns==1 to attend all customers,sum of line demand of customers attached to facility 'm' <= 'm' facility capacity
-    constraints = [  StateMatrix.T @ np.ones(m) == 1, StateMatrix @ demand  <= capacity*used ]
+    constraints = [  StateMatrix.T @ np.ones(m) == 1, StateMatrix @ demand  <= capacity*used,
+                   z <= 1000*used , z >= -1000*used ]
                  
     # solve the problem            
     prob = cp.Problem(objective, constraints)
