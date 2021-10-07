@@ -73,7 +73,7 @@ def solve_it(input_data):
     # sum setup cost and distances
     objective = cp.Minimize( dist_sum + obj )
     # sum of columns==1 to attend all customers,sum of line demand of customers attached to facility 'm' <= 'm' facility capacity
-    constraints = [  StateMatrix.T @ np.ones(m) == 1, StateMatrix @ demand  <= capacity*used,
+    constraints = [  StateMatrix.T @ np.ones(m) == 1, StateMatrix @ demand  <= capacity,
                    z <= 1000*used , z >= -1000*used ]
                  
     # solve the problem            
