@@ -1,5 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+# It wotks only for small problems, with less than 500 customers and 100 facilities
 
 from collections import namedtuple
 import math
