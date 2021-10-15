@@ -144,7 +144,7 @@ def solve_it(input_data):
 
 
         # calculate the setup cost of the solution
-        # 'used' is a vector of 'm' facilities: if 0 not used,if 1 used
+        # 'z' is a vector that constrained with 'used' will give me the list of used facilities
         z = cp.sum(StateMatrix,axis=1)
         obj = 0
         for i in range(0,m):
