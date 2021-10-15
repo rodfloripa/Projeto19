@@ -1,4 +1,5 @@
-# Maximum running time is 40 minutes for big problems
+# Maximum running time is 40 minutes for big problems.You can increase this time to get more accurate
+# optimizations.
 # Install first cvxpy(pip install cvxpy) ,Cbc( https://github.com/coin-or/Cbc ) and cbcpy(pip install cbcpy)
 
 from collections import namedtuple
