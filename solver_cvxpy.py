@@ -9,7 +9,7 @@ from numpy.random import default_rng
 from scipy.spatial import distance
 import warnings
 
-
+# See if you have the CbC solver installed
 print(cp.installed_solvers())
 warnings.filterwarnings("ignore")
 Point = namedtuple("Point", ['x', 'y'])
