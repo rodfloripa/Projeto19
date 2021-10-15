@@ -17,8 +17,8 @@ de cada armazém aberto.
 
 Instalar Bibliotecas cvxpy,otimizador CbC e cbcpy:
 
-https://github.com/coin-or/Cbc
-pip install cbcpy
+https://github.com/coin-or/Cbc,
+pip install cbcpy,
 pip install cvxpy
 
 Para rodar baixe o diretório data e digite na linha de comando:
