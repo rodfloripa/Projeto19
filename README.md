@@ -15,10 +15,10 @@ de clientes Di que estão conectados a cada armazém.Deve-se minimizar o somató
 distâncias de cada armazém até seus clientes atendidos e o somatório de custos de operação
 de cada armazém aberto.
 
-Instalar Bibliotecas cvxpy e xpress:
+Instalar Bibliotecas cvxpy,otimizador CbC e cbcpy:
 
-pip install xpress
-
+https://github.com/coin-or/Cbc
+pip install cbcpy
 pip install cvxpy
 
 Para rodar baixe o diretório data e digite na linha de comando:
