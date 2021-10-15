@@ -1,5 +1,5 @@
 # Maximum running time is 40 minutes for big problems
-# Install first cvxpy,Cbc( https://github.com/coin-or/Cbc ) and cbcpy
+# Install first cvxpy(pip install cvxpy) ,Cbc( https://github.com/coin-or/Cbc ) and cbcpy(pip install cbcpy)
 
 from collections import namedtuple
 import math
