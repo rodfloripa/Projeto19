@@ -4,11 +4,13 @@
 
 from collections import namedtuple
 import math
+from time import sleep
 import cvxpy as cp
 import numpy as np
 from numpy.random import default_rng
 from scipy.spatial import distance
 import warnings
+
 
 # See if you have the CbC solver installed
 print(cp.installed_solvers())
@@ -17,11 +19,16 @@ Point = namedtuple("Point", ['x', 'y'])
 Facility = namedtuple("Facility", ['index', 'setup_cost', 'capacity', 'location'])
 Customer = namedtuple("Customer", ['index', 'demand', 'location'])
 
+
 def length(point1, point2):
     return math.sqrt((point1.x - point2.x)**2 + (point1.y - point2.y)**2)
 
 def solve_it(input_data):
-    
+    # 'time_to_finish' is the time to finish each of 4 quadrants in seconds,
+    #  'time_quadrant' is the time in minutes to finish each quadrant
+    time_quadrant = 10
+    time_to_finish = time_quadrant*60
+    warnings.filterwarnings("ignore")
     # parse the input
     lines = input_data.split('\n')
 
@@ -127,7 +134,7 @@ def solve_it(input_data):
 
     # Return total cost and dict[customer]:facility for each quadrant
     def calc(cust_pts_q1,fac_pts_q1,cx1,fx1):
-        
+        global time_finish
         capacity,cost = [],[]
         for i in fx1:
             capacity.append(facilities[i].capacity)
@@ -151,7 +158,7 @@ def solve_it(input_data):
         for i in range(0,m):
             obj = obj + facilities[fx1[i]].setup_cost*used[i]  
         # distance matrix
-        print("Customers and Facilities:", n,m)
+        #print("Customers and Facilities:", n,m)
         # each 'm' column of dist_matrix has the distances from n customers to facility 'm'   
         dist_matrix = distance.cdist(cust_pts_q1,fac_pts_q1)
         # example: print distances to facility 0 : print(dist_matrix[:,0]) : dist_matrix = 50, 16
@@ -171,7 +178,7 @@ def solve_it(input_data):
 
         # solve the problem            
         prob = cp.Problem(objective, constraints)
-        result = prob.solve(cp.CBC,verbose = False,maximumSeconds=600)
+        result = prob.solve(cp.CBC,verbose = False,maximumSeconds=time_to_finish)
         #print("Capacities " ,used.value*capacity)
         #print("Used Capacity ",StateMatrix.value @ demand)
         
@@ -189,29 +196,34 @@ def solve_it(input_data):
         f_sol = {} 
         # transform from new index to original
         for i in range(0,len(solution)):
-            f_sol[cx1[i]] = fx1[solution[i]]    
-
+            f_sol[cx1[i]] = fx1[solution[i]] 
         return(obj1,f_sol)
 
     # if one quadrant is empty don't optimize for each quadrant
     if len(cust_pts_q1) > 0 and len(cust_pts_q2) > 0 and len(cust_pts_q3) > 0 and \
        len(cust_pts_q4) > 0 and len(fac_pts_q1) > 0 and len(fac_pts_q2) > 0 and \
        len(fac_pts_q3) > 0 and len(fac_pts_q4) > 0:
+        t_finish = 4*time_quadrant
+        print("Time to finish: ",t_finish," minutes",end="\r", flush=True)
         obj1,dic1 = calc(cust_pts_q1,fac_pts_q1,cx1,fx1)
+        print("Time to finish: ",t_finish-1*time_quadrant," minutes",end="\r", flush=True)
         obj2,dic2 = calc(cust_pts_q2,fac_pts_q2,cx2,fx2)
+        print("Time to finish: ",t_finish-2*time_quadrant," minutes",end="\r", flush=True)
         obj3,dic3 = calc(cust_pts_q3,fac_pts_q3,cx3,fx3)
+        print("Time to finish: ",t_finish-3*time_quadrant," minutes",end="\r", flush=True)
         obj4,dic4 = calc(cust_pts_q4,fac_pts_q4,cx4,fx4)
+        
         obj = obj1+obj2+obj3+obj4
         dic = {**dic1, **dic2, **dic3, **dic4}
     else:
         cx1 = [i for i in range(0,n)]
         fx1 = [i for i in range(0,m)]
-        obj,dic = calc(cust_pts,fac_pts,cx1,fx1)
+        obj,dic = calc(cust_pts_q1,fac_pts_q1,cx1,fx1)
     solution = []
     for i in range(0,len(dic)):
         solution.append(dic[i])
 
-
+   
     #prepare the solution in the specified output format
     output_data = '%.2f' % obj + ' ' + str(0) + '\n'
     output_data += ' '.join(map(str, solution))
@@ -220,11 +232,16 @@ def solve_it(input_data):
 import sys
 
 if __name__ == '__main__':
+    # time to finish in minutes, 10 minutes for each of 4 quadrants
+    time_to_finish = 4*10
     import sys
     if len(sys.argv) > 1:
         file_location = sys.argv[1].strip()
         with open(file_location, 'r') as input_data_file:
             input_data = input_data_file.read()
         print(solve_it(input_data))
+        
+
     else:
         print('This test requires an input file.  Please select one from the data directory. (i.e. python solver.py ./data/fl_16_2)')
+
