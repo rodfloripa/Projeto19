@@ -218,7 +218,7 @@ def solve_it(input_data):
     else:
         cx1 = [i for i in range(0,n)]
         fx1 = [i for i in range(0,m)]
-        obj,dic = calc(cust_pts_q1,fac_pts_q1,cx1,fx1)
+        obj,dic = calc(cust_pts,fac_pts,cx1,fx1)
     solution = []
     for i in range(0,len(dic)):
         solution.append(dic[i])
