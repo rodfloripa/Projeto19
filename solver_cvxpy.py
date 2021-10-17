@@ -218,6 +218,7 @@ def solve_it(input_data):
     else:
         cx1 = [i for i in range(0,n)]
         fx1 = [i for i in range(0,m)]
+        print("Time to finish: ",time_quadrant," minutes",end="\r", flush=True)
         obj,dic = calc(cust_pts,fac_pts,cx1,fx1)
     solution = []
     for i in range(0,len(dic)):
