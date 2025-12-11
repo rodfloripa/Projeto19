@@ -4,7 +4,7 @@ Esta é uma tarefa do curso Otimização Discreta- https://www.coursera.org/lear
 O arquivo handout.pdf possui a descrição completa do problema e do formato de dados de entrada
 
 Otimização de logística de armazéns de distribuição.
-
+<p align="justify">
 O problema fornece a localização x,y de n clientes e m armazéns de distribuição.
 Cada cliente possui uma demanda 'Di' a ser atendida, cada armazém possui uma capacidade
 máxima de atendimento 'Ci' e custo de operação 'Cti'. O objetivo é otimizar a seleção
@@ -14,7 +14,7 @@ máxima de atendimento de cada armazém não deve ser superada pelo somatório d
 de clientes Di que estão conectados a cada armazém.Deve-se minimizar o somatório de
 distâncias de cada armazém até seus clientes atendidos e o somatório de custos de operação
 de cada armazém aberto.
-
+</p>
 ![Recompensa no tempo](https://github.com/rodfloripa/Projeto19/blob/main/warehouse.jpeg?raw=true)
 
 Instalar Bibliotecas cvxpy,otimizador CbC e cbcpy:
