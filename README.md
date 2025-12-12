@@ -15,7 +15,7 @@ de clientes Di que estão conectados a cada armazém.Deve-se minimizar o somató
 distâncias de cada armazém até seus clientes atendidos e o somatório de custos de operação
 de cada armazém aberto.
 </p>
-![Recompensa no tempo](warehouse.jpeg)
+![Recompensa no tempo](warehouse.jpeg](https://github.com/rodfloripa/Projeto19/blob/main/warehouse.jpeg)
 
 Instalar Bibliotecas cvxpy,otimizador CbC e cbcpy:
 
