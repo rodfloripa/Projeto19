@@ -18,6 +18,7 @@ de cada armazém aberto.
 
 <img src="warehouse.jpeg" alt="Project Screenshot" width="400" height="450">
 
+<img src="matriz_estados.jpeg" alt="Project Screenshot" width="400" height="450">
 
 Instalar Bibliotecas cvxpy,otimizador CbC e cbcpy:
 
