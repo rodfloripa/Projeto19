@@ -17,9 +17,14 @@ de cada armazém aberto.
 </p>
 
 <img src="warehouse.jpeg" alt="Project Screenshot" width="400" height="450">
+Fig1. Descriçao
+<br/><br/><br/><br/>
 
-<img src="matriz_estados.jpeg" alt="Project Screenshot" width="400" height="450">
 
+![Matriz de estados](https://github.com/rodfloripa/Projeto19/blob/main/matriz_estados.jpg)
+
+Fig2. Matriz de estados
+<br/><br/><br/><br/>
 Instalar Bibliotecas cvxpy,otimizador CbC e cbcpy:
 
 https://github.com/coin-or/Cbc,
